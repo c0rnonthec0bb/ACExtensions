@@ -8,7 +8,7 @@ s.summary = "Extensions to facilitate efficient cross-platform development."
 s.requires_arc = true
 
 # 2 THIS NEXT LINE MUST REMAIN LINE 11
-s.version = "0.1.4"
+s.version = "0.1.7"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }

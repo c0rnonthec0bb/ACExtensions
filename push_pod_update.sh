@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sed -i "11s/.*/s.version = \"$1\"/" ACExtensions.podspec
+sed -i "" "11s/.*/s.version = \"$1\"/" ACExtensions.podspec
 git add .
 git commit -m "Update to version $1"
 git tag $1
