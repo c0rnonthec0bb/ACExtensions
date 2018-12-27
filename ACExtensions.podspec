@@ -7,7 +7,7 @@ s.name = "ACExtensions"
 s.summary = "Extensions to facilitate efficient cross-platform development."
 s.requires_arc = true
 
-# 2
+# 2 THIS NEXT LINE MUST REMAIN LINE 11
 s.version = "0.1.4"
 
 # 3
