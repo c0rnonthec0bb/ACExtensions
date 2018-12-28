@@ -54,9 +54,7 @@ public enum Model : String {
     iPadPro11       = "iPad Pro 11",
     iPadPro12_9      = "iPad Pro 12.9",
     iPadPro12_9_2nd = "iPad Pro 12.9 2nd Gen",
-    iPadPro12_9_3rd = "iPad Pro 12.9 3rd Gen",
-    
-    unrecognized     = "Unrecognized"
+    iPadPro12_9_3rd = "iPad Pro 12.9 3rd Gen"
 }
 
 public extension UIDevice {
@@ -73,7 +71,7 @@ public extension UIDevice {
         return String(validatingUTF8: modelCode ?? "nil") ?? "nil"
     }
     
-    public var type: Model {
+    public var type: Model? {
         
         var modelMap : [ String : Model ] = [
             "i386"      : .simulator,
@@ -160,7 +158,7 @@ public extension UIDevice {
         if let model = modelMap[rawTypeCode] {
             return model
         }
-        return Model.unrecognized
+        return nil
     }
     
     public enum ProcessorLevel{
@@ -170,6 +168,11 @@ public extension UIDevice {
     }
     
     public var processorLevel:ProcessorLevel{
+        
+        guard let type = self.type else{
+            return .high
+        }
+        
         switch type{
         case .iPod1, .iPod2, .iPod3, .iPod4, .iPod5, .iPhone4, .iPhone4S, .iPhone5, .iPhone5S, .iPadMini1, .iPadMini2, .iPadMini3, .iPad2, .iPad3, .iPad4, .iPadAir1: // < A8
             return .low
