@@ -95,7 +95,7 @@ public class UIViewAnimationHelper{
     }
     
     public func setDuration(_ duration:Milliseconds)->UIViewAnimationHelper{
-        return self.setDuration(seconds: TimeInterval(delay) / 1000)
+        return self.setDuration(seconds: TimeInterval(duration) / 1000)
     }
     
     public func setInterpolator(_ interpolator:Interpolator)->UIViewAnimationHelper{
