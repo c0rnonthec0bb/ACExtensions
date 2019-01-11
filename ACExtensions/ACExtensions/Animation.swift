@@ -183,6 +183,11 @@ public class UIViewAnimationHelper{
     public func alphaBy(_ value:CGFloat)->UIViewAnimationHelper{
         return alpha(view.alpha + value)
     }
+
+    public func other(_ value: @escaping ()->())->UIViewAnimationHelper{
+        animations.append(value)
+        return self
+    }
 }
 
 public class Interpolator{
