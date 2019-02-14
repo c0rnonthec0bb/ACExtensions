@@ -106,7 +106,7 @@ public class LayoutParams {
     public static func setEqualConstraint(view1:UIView, attribute1: NSLayoutConstraint.Attribute, view2:UIView?, attribute2:NSLayoutConstraint.Attribute?, ratio:CGFloat, margin:CGFloat){
         setEqualConstraint(view1: view1, attribute1: attribute1, view2: {return view2}, attribute2: attribute2, ratio: ratio, margin: margin, isReady:{
             if let view2 = view2{
-                return view1.window == view2.window && view1.window != nil
+                return (view1.window != nil && view1.window == view2.window) || view1.superview == view2 || view2.superview == view1 || (view1.superview != nil && view1.superview == view2.superview)
             }else{
                 return true
             }})
