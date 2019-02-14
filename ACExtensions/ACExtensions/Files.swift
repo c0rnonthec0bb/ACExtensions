@@ -15,7 +15,6 @@ public class Files {
         var path = paths.first!
         let nameComponents = name.split(separator: "/")
         for component in nameComponents{
-            print("appending \(component)")
             path = path.appendingPathComponent(String(component))
         }
         return path
@@ -145,13 +144,12 @@ public class Files {
             return array.map({ item in return makeUserDefaultsCompatible(on: item, transform: transform)})
         }
         if var dict = on as? Dictionary<String, Any>{
-            print("found dict \(dict)")
             for key in dict.keys{
                 dict[key] = makeUserDefaultsCompatible(on: dict[key]!, transform: transform)
             }
             return dict
         }
-        print("returning nil for \(String(describing: on))")
+        
         return 0
     }
 }
