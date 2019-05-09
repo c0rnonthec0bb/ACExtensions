@@ -11,7 +11,7 @@ import Foundation
 public typealias Milliseconds = Int64
 
 public extension Date{
-    public var timeInMillis:Milliseconds{
+    var timeInMillis:Milliseconds{
         return Milliseconds(timeIntervalSince1970 * 1000)
     }
     

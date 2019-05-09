@@ -39,26 +39,26 @@ public func %% (left: CGFloat, right:CGFloat)-> CGFloat{
 //CGPoint
 
 public extension CGPoint{
-    public init(_ cgSize: CGSize){
+    init(_ cgSize: CGSize){
         self.init(x: cgSize.width, y: cgSize.height)
     }
     
     ///hypotenuse
-    public var length:CGFloat{
+    var length:CGFloat{
         get{
             return hypot(self)
         }
     }
     
     ///radians
-    public var angle:CGFloat{
+    var angle:CGFloat{
         get{
             return atan2(y, x)
         }
     }
     
     ///raw
-    public var raw:(x:Float, y:Float){
+    var raw:(x:Float, y:Float){
         get{
             return (x: Float(x), y: Float(y))
         }
@@ -104,25 +104,25 @@ public prefix func -(right:CGPoint)->CGPoint{
 //CGSize
 
 public extension CGSize{
-    public init(_ cgPoint: CGPoint){
+    init(_ cgPoint: CGPoint){
         self.init(width: cgPoint.x, height: cgPoint.y)
     }
     
     ///hypotenuse
-    public var length:CGFloat{
+    var length:CGFloat{
         get{
             return hypot(width, height)
         }
     }
     
-    public var widthToHeight:CGFloat{
+    var widthToHeight:CGFloat{
         get{
             return width / height
         }
     }
     
     ///raw
-    public var raw:(x:Float, y:Float){
+    var raw:(x:Float, y:Float){
         get{
             return (x: Float(width), y: Float(height))
         }
@@ -166,7 +166,7 @@ public func * (left: CGRect, right: CGSize)->CGRect{
 //UInt
 
 public extension UInt{
-    public static func raw(_ w:(UInt, UInt))->(Float, Float){
+    static func raw(_ w:(UInt, UInt))->(Float, Float){
         return (Float(w.0), Float(w.1))
     }
 }

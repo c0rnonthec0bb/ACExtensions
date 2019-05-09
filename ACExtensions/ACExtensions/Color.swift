@@ -10,11 +10,11 @@ import UIKit
 
 public extension UIColor{
     
-    @nonobjc public static let WHITE = UIColor(hexString: "#FFF")!
-    @nonobjc public static let BLACK = UIColor(hexString: "#000")!
-    @nonobjc public static let HALFBLACK = UIColor(hexString: "#7f7f7f")!
+    @nonobjc static let WHITE = UIColor(hexString: "#FFF")!
+    @nonobjc static let BLACK = UIColor(hexString: "#000")!
+    @nonobjc static let HALFBLACK = UIColor(hexString: "#7f7f7f")!
     
-    public convenience init?(alpha: Int, red: Int, green: Int, blue: Int) {
+    convenience init?(alpha: Int, red: Int, green: Int, blue: Int) {
         if min(alpha, red, green, blue) < 0 || max(alpha, red, green, blue) > 255{
             return nil
         }
@@ -31,7 +31,7 @@ public extension UIColor{
     }
     
     /// RGB, ARGB, RRGGBB, or AARRGGBB
-    public convenience init?(hexString: String){
+    convenience init?(hexString: String){
         var hexString = hexString
         
         var alpha:Int = 0, red:Int = 0, green:Int = 0, blue:Int = 0;
@@ -70,7 +70,7 @@ public extension UIColor{
         self.init(alpha: alpha, red: red, green: green, blue: blue)
     }
     
-    public convenience init?(cssHexString:String){
+    convenience init?(cssHexString:String){
         
         var cssHexString = cssHexString
         
@@ -103,7 +103,7 @@ public extension UIColor{
         self.init(alpha: 0xff, red:((netHex >> 8) & 0xf) * 0x11, green:((netHex >> 4) & 0xf) * 0x11, blue: (netHex & 0xf) * 0x11)
     }
     
-    public var hexString: String {
+    var hexString: String {
         get{
             var r:CGFloat = 0
             var g:CGFloat = 0

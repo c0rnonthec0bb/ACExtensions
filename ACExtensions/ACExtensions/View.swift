@@ -26,7 +26,7 @@ private var subviewVisibilityChangedKey: UInt8 = 4
 
 public extension UIView{
     
-    public var measuredOrigin:CGPoint{
+    var measuredOrigin:CGPoint{
         get{
             if let value = objc_getAssociatedObject(self, &measuredOriginKey) as? CGPoint{
                 return value
@@ -41,7 +41,7 @@ public extension UIView{
         }
     }
     
-    public var measuredSize:CGSize{
+    var measuredSize:CGSize{
         get{
             if let value = objc_getAssociatedObject(self, &measuredSizeKey) as? CGSize{
                 return value
@@ -56,7 +56,7 @@ public extension UIView{
         }
     }
     
-    public func removeAllViews(){
+    func removeAllViews(){
         let subviews = self.subviews
         for subview in subviews{
             subview.removeFromSuperview()
@@ -64,20 +64,20 @@ public extension UIView{
         
     }
     
-    @objc public func setInsets(_ insets:UIEdgeInsets){
+    @objc func setInsets(_ insets:UIEdgeInsets){
         layoutMargins = insets
         
         objc_setAssociatedObject(self, &insetsSetKey, true, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
     }
     
-    public func insetsSet()->Bool{
+    func insetsSet()->Bool{
         if let _ = objc_getAssociatedObject(self, &insetsSetKey){
             return true
         }
         return false
     }
     
-    public func getInsets()->UIEdgeInsets{
+    func getInsets()->UIEdgeInsets{
         if insetsSet(){
             return layoutMargins
         }else{
@@ -85,7 +85,7 @@ public extension UIView{
         }
     }
     
-    public func roundCorners(corners: UIRectCorner, radius: CGFloat){
+    func roundCorners(corners: UIRectCorner, radius: CGFloat){
         if corners == .allCorners{
             self.layer.cornerRadius = radius
         }else{
@@ -99,12 +99,12 @@ public extension UIView{
         }
     }
     
-    public func setupBorder(color: UIColor?, width: CGFloat){
+    func setupBorder(color: UIColor?, width: CGFloat){
         layer.borderColor = color?.cgColor
         layer.borderWidth = width
     }
     
-    public func currentFirstResponder() -> UIView? {
+    func currentFirstResponder() -> UIView? {
         if self.isFirstResponder {
             return self
         }
@@ -118,7 +118,7 @@ public extension UIView{
         return nil
     }
     
-    public var backgroundImage:UIImage?{
+    var backgroundImage:UIImage?{
         get{
             if let view = objc_getAssociatedObject(self, &backgroundViewKey) as? UIImageView{
                 return view.image
@@ -141,7 +141,7 @@ public extension UIView{
         }
     }
     
-    public var subviewVisibilityChangedFunc:()->(){
+    var subviewVisibilityChangedFunc:()->(){
         get{
             if let value = objc_getAssociatedObject(self, &subviewVisibilityChangedKey) as? ()->(){
                 return value
@@ -153,7 +153,7 @@ public extension UIView{
         }
     }
     
-    public var isHiddenX:Bool{
+    var isHiddenX:Bool{
         get{
             return isHidden
         }

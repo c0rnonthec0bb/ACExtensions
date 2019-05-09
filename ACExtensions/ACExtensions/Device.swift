@@ -59,7 +59,7 @@ public enum Model : String {
 
 public extension UIDevice {
     
-    public var rawTypeCode: String{
+    var rawTypeCode: String{
         var systemInfo = utsname()
         uname(&systemInfo)
         let modelCode = withUnsafePointer(to: &systemInfo.machine) {
@@ -71,7 +71,7 @@ public extension UIDevice {
         return String(validatingUTF8: modelCode ?? "nil") ?? "nil"
     }
     
-    public var type: Model? {
+    var type: Model? {
         
         var modelMap : [ String : Model ] = [
             "i386"      : .simulator,
@@ -161,13 +161,13 @@ public extension UIDevice {
         return nil
     }
     
-    public enum ProcessorLevel{
+    enum ProcessorLevel{
         case low
         case medium
         case high
     }
     
-    public var processorLevel:ProcessorLevel{
+    var processorLevel:ProcessorLevel{
         
         guard let type = self.type else{
             return .high

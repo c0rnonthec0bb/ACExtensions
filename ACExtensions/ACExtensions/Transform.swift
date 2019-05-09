@@ -9,7 +9,7 @@
 import UIKit
 
 public extension CGAffineTransform{
-    public var scaleX:CGFloat{
+    var scaleX:CGFloat{
         get{
             return sqrt(a*a+c*c)
         }
@@ -22,7 +22,7 @@ public extension CGAffineTransform{
         }
     }
     
-    public var scaleY:CGFloat{
+    var scaleY:CGFloat{
         get{
             return sqrt(b*b+d*d)
         }
@@ -35,7 +35,7 @@ public extension CGAffineTransform{
         }
     }
     
-    public var uniformScale:CGFloat{
+    var uniformScale:CGFloat{
         get{
             return (scaleX + scaleY) / 2
         }
@@ -51,7 +51,7 @@ public extension CGAffineTransform{
         }
     }
     
-    public var scale:CGSize{
+    var scale:CGSize{
         get{
             return CGSize(width: scaleX, height: scaleY)
         }
@@ -62,7 +62,7 @@ public extension CGAffineTransform{
         }
     }
     
-    public var rotation:CGFloat{
+    var rotation:CGFloat{
         get{
             return atan2(b, a)
         }
@@ -79,7 +79,7 @@ public extension CGAffineTransform{
         }
     }
     
-    public var translation:CGPoint{
+    var translation:CGPoint{
         get{
             return CGPoint(x: tx, y: ty)
         }
@@ -97,7 +97,7 @@ public extension CGAffineTransform{
 
 public extension UIView{
     
-    public var scaleX:CGFloat{
+    var scaleX:CGFloat{
         get{
             return transform.scaleX
         }
@@ -106,7 +106,7 @@ public extension UIView{
         }
     }
     
-    public var scaleY:CGFloat{
+    var scaleY:CGFloat{
         get{
             return transform.scaleY
         }
@@ -116,7 +116,7 @@ public extension UIView{
     }
     
     ///this is in degrees!
-    public var rotation:CGFloat{
+    var rotation:CGFloat{
         get{
             return transform.rotation * 180 / CGFloat.pi
         }
@@ -126,7 +126,7 @@ public extension UIView{
         }
     }
     
-    public var translationX:CGFloat{
+    var translationX:CGFloat{
         get{
             return transform.tx
         }
@@ -135,7 +135,7 @@ public extension UIView{
         }
     }
     
-    public var translationY:CGFloat{
+    var translationY:CGFloat{
         get{
             return transform.ty
         }
@@ -144,7 +144,7 @@ public extension UIView{
         }
     }
     
-    public var translation:CGPoint{
+    var translation:CGPoint{
         get{
             return CGPoint(x: translationX, y: translationY)
         }
@@ -155,7 +155,7 @@ public extension UIView{
         }
     }
     
-    public var width:CGFloat{
+    var width:CGFloat{
         get{
             let t = transform
             transform = .identity
@@ -171,7 +171,7 @@ public extension UIView{
         }
     }
     
-    public var height:CGFloat{
+    var height:CGFloat{
         get{
             let t = transform
             transform = .identity
@@ -187,7 +187,7 @@ public extension UIView{
         }
     }
     
-    public var x:CGFloat{
+    var x:CGFloat{
         get{
             let t = transform
             transform = .identity
@@ -203,7 +203,7 @@ public extension UIView{
         }
     }
     
-    public var y:CGFloat{
+    var y:CGFloat{
         get{
             let t = transform
             transform = .identity
@@ -219,7 +219,7 @@ public extension UIView{
         }
     }
     
-    public var originalOrigin:CGPoint{
+    var originalOrigin:CGPoint{
         get{
             return CGPoint(x: x, y: y)
         }
@@ -230,7 +230,7 @@ public extension UIView{
         }
     }
     
-    public var originalSize:CGSize{
+    var originalSize:CGSize{
         get{
             return CGSize(width: width, height: height)
         }
@@ -241,7 +241,7 @@ public extension UIView{
         }
     }
     
-    public var originalFrame:CGRect{
+    var originalFrame:CGRect{
         get{
             return CGRect(origin: originalOrigin, size: originalSize)
         }
@@ -252,25 +252,25 @@ public extension UIView{
         }
     }
     
-    public var left:CGFloat{
+    var left:CGFloat{
         get{
             return measuredOrigin.x
         }
     }
     
-    public var top:CGFloat{
+    var top:CGFloat{
         get{
             return measuredOrigin.y
         }
     }
     
-    public var right:CGFloat{
+    var right:CGFloat{
         get{
             return left + measuredSize.width
         }
     }
     
-    public var bottom:CGFloat{
+    var bottom:CGFloat{
         get{
             return top + measuredSize.height
         }
