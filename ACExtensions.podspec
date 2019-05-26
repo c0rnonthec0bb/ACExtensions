@@ -33,6 +33,6 @@ s.source_files = "ACExtensions/**/*.{swift}"
 # s.resources = "ACExtensions/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 
 # 10
-s.swift_version = "4.2"
+s.swift_version = "5.0"
 
 end
