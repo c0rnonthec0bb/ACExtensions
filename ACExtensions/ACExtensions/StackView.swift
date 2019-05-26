@@ -71,9 +71,9 @@ open class VerticalStackView: UIView {
         
         var prevView:UIView = self
         for subview in subviews{
-            let constraint = NSLayoutConstraint(item: subview, attribute: .top, relatedBy: .equal, toItem: prevView, attribute: prevView == self ? .topMargin : .bottom, multiplier: 1, constant: marginTop(for:subview))
-            subviewConstraints.append(constraint)
             if !subview.isHiddenX{
+                let constraint = NSLayoutConstraint(item: subview, attribute: .top, relatedBy: .equal, toItem: prevView, attribute: prevView == self ? .topMargin : .bottom, multiplier: 1, constant: marginTop(for:subview))
+                subviewConstraints.append(constraint)
                 prevView = subview
             }
         }

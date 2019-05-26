@@ -90,7 +90,7 @@ public extension CGAffineTransform{
         }
     }
     
-    public func translatedBy(_ concatenatedTranslation: CGPoint)->CGAffineTransform{
+    func translatedBy(_ concatenatedTranslation: CGPoint)->CGAffineTransform{
         return translatedBy(x: concatenatedTranslation.x, y: concatenatedTranslation.y)
     }
 }

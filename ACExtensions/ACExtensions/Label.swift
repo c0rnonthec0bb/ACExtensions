@@ -426,7 +426,7 @@ open class UIEditFieldX: UITextField, UITextFieldDelegate{
     
     open var onReturn = {}
     
-    private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         onReturn()
         return true
     }

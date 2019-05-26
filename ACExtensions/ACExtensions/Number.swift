@@ -9,19 +9,19 @@
 import UIKit
 
 public extension Int{
-    public func sign()->Int{
+    func sign()->Int{
         return self == 0 ? 0 : self > 0 ? 1 : -1
     }
 }
 
 public extension CGFloat{
-    public func sign()->CGFloat{
+    func sign()->CGFloat{
         return self == 0 ? 0 : self > 0 ? 1 : -1
     }
 }
 
 public extension CGFloat{
-    public init?(fromJunk junk:Any?){
+    init?(fromJunk junk:Any?){
         
         if let float = junk as? CGFloat{
             self.init(float)
@@ -58,7 +58,7 @@ public extension CGFloat{
 }
 
 public extension Float{
-    public init?(fromJunk junk:Any?){
+    init?(fromJunk junk:Any?){
         
         if let float = junk as? CGFloat{
             self.init(float)

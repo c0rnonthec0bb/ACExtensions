@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIImage{
-    public func scaled(toSize newSize: CGSize) -> UIImage {
+    func scaled(toSize newSize: CGSize) -> UIImage {
         let newSize = newSize / UIScreen.main.scale
         let newRect = CGRect(x: 0,y: 0, width: newSize.width, height: newSize.height).integral
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
@@ -23,15 +23,15 @@ public extension UIImage{
         return newImage
     }
     
-        public convenience init(view: UIView) {
-            UIGraphicsBeginImageContext(view.frame.size)
-            view.layer.render(in: UIGraphicsGetCurrentContext()!)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            self.init(cgImage: (image?.cgImage)!)
-        }
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (image?.cgImage)!)
+    }
     
-    public func cropped(toRect rect:CGRect)->UIImage{
+    func cropped(toRect rect:CGRect)->UIImage{
         
         var orientedScaledRect = CGRect()
         
@@ -178,7 +178,7 @@ public extension UIImage{
 }
 
 public extension CGImage{
-    public func scaled(toSize newSize: CGSize) -> CGImage {
+    func scaled(toSize newSize: CGSize) -> CGImage {
         let newSize = newSize / UIScreen.main.scale
         let newRect = CGRect(x: 0,y: 0, width: newSize.width, height: newSize.height).integral
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
