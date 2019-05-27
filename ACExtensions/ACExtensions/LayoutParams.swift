@@ -410,7 +410,7 @@ public class RelativeParams{
 public class LinearParams: RelativeParams {}
 
 public extension UIView{
-    public func addSubview(_ view:UIView, _ params:RelativeParams){
+    func addSubview(_ view:UIView, _ params:RelativeParams){
         self.addSubview(view)
         
         for action in params.actions{

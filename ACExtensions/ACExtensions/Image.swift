@@ -48,6 +48,8 @@ public extension UIImage{
         case .right, .rightMirrored:
             orientedScaledRect.origin.x = self.size.height - rect.origin.y - rect.size.height
             orientedScaledRect.size.width = rect.height
+        @unknown default:
+            fatalError()
         }
         
         switch self.imageOrientation{
@@ -63,6 +65,8 @@ public extension UIImage{
         case .right, .leftMirrored:
             orientedScaledRect.origin.y = self.size.width - rect.origin.x - rect.size.width
             orientedScaledRect.size.height = rect.width
+        @unknown default:
+            fatalError()
         }
         
         orientedScaledRect = orientedScaledRect * self.scale
@@ -147,6 +151,8 @@ public extension UIImage{
             break
         case .up, .upMirrored:
             break
+        @unknown default:
+            fatalError()
         }
         
         //Flip image one more time if needed to, this is to prevent flipped image
@@ -160,6 +166,8 @@ public extension UIImage{
             transform.scaledBy(x: -1, y: 1)
         case .up, .down, .left, .right:
             break
+        @unknown default:
+            fatalError()
         }
         
         ctx.concatenate(transform)

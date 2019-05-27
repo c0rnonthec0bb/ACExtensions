@@ -9,7 +9,7 @@
 import UIKit
 
 public extension CGPoint{
-    public func isWithin(rect:CGRect)->Bool{
+    func isWithin(rect:CGRect)->Bool{
         return x >= rect.minX && x <= rect.maxX && y >= rect.minY && y <= rect.maxY
     }
 }
