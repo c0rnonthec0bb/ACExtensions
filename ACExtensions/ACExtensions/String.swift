@@ -10,7 +10,7 @@ import UIKit
 
 extension String:Error{}
 
-extension String{
+public extension String{
     func length()->Int{
         return self.count
     }
