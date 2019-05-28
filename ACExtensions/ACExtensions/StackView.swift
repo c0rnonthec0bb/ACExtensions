@@ -26,14 +26,15 @@ open class VerticalStackView: UIView {
         }
     }
     
-    override open func addSubview(_ view:UIView){
-        addSubview(view, margin: 0)
+    open override func addSubview(_ view: UIView) {
+        needsUpdateConstraintsX = true
+        setNeedsUpdateConstraints()
+        super.addSubview(view)
     }
     
-    open func addSubview(_ view: UIView, margin:CGFloat) {
-        needsUpdateConstraintsX = true
+    open func addSubview(_ view: UIView, margin:CGFloat, _ params:RelativeParams = RelativeParams()) {
         marginTops[view] = margin
-        super.addSubview(view)
+        addSubview(view, params)
     }
     
     var marginTops:[UIView:CGFloat] = [:]
@@ -111,23 +112,24 @@ open class HorizontalStackView: UIView {
     
     override open func addSubview(_ view:UIView){
         needsUpdateConstraintsX = true
+        setNeedsUpdateConstraints()
         super.addSubview(view)
     }
     
-    open func addSubview(_ view: UIView, margin:CGFloat) {
+    open func addSubview(_ view: UIView, margin:CGFloat, _ params:RelativeParams = RelativeParams()) {
         marginLefts[view] = margin
-        addSubview(view)
+        addSubview(view, params)
     }
     
-    open func addSubview(_ view:UIView, weight:CGFloat) {
+    open func addSubview(_ view:UIView, weight:CGFloat, _ params: RelativeParams = RelativeParams()) {
         weights[view] = weight
-        addSubview(view)
+        addSubview(view, params)
     }
     
-    open func addSubview(_ view:UIView, margin:CGFloat, weight:CGFloat) {
+    open func addSubview(_ view:UIView, margin:CGFloat, weight:CGFloat, _ params: RelativeParams = RelativeParams()) {
         marginLefts[view] = margin
         weights[view] = weight
-        addSubview(view)
+        addSubview(view, params)
     }
     
     var marginLefts:[UIView:CGFloat] = [:]
