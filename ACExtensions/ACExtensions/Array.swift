@@ -8,6 +8,15 @@
 
 import Foundation
 
+public extension Array{
+    func value(atIndex i:Int)->Element?{
+        guard i >= 0 && i < count else{
+            return nil
+        }
+        return self[i]
+    }
+}
+
 public extension Array where Element : AnyObject{
     func index(ofExact: Element)->Int?{
         for i in 0 ..< count{
